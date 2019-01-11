@@ -5,6 +5,13 @@ resource "random_id" "random1" {
 
   byte_length = 8
 }
+resource "random_id" "random2" {
+  keepers {
+    uuid = "${uuid()}"
+  }
+
+  byte_length = 8
+}
 resource "random_id" "random3" {
   keepers {
     uuid = "${uuid()}"
