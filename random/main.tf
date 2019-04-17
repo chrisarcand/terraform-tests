@@ -1,75 +1,75 @@
 resource "random_id" "random1" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random3" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random4" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random5" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random6" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random7" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random8" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random9" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random10" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random11" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
   byte_length = 8
 }
 resource "random_id" "random12" {
-  keepers {
+  keepers = {
     uuid = "${uuid()}"
   }
 
