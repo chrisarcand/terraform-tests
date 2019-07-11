@@ -1,4 +1,7 @@
 resource "random_pet" "animal" {
+  keepers = {
+    uuid = "${uuid()}" # Force a new name each time
+  }
   length = 3
 }
 
