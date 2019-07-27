@@ -1,0 +1,15 @@
+{
+    "mock": {
+        "tfconfig": {
+            "resources": {
+                "random_pet": {
+                    "animal": { "config": { "length": 2 } }
+                }
+            }
+        }
+    },
+
+    "test": {
+        "main": false
+    }
+}

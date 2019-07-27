@@ -1,0 +1,11 @@
+# Enforces each pet name to have at least three words.
+
+import "tfconfig"
+
+print(tfconfig.resources.random_pet)
+
+main = rule {
+	all tfconfig.resources.random_pet as _, pet {
+		pet.config.length >= 3
+	}
+}
