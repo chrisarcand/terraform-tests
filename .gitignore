@@ -1,3 +1,5 @@
 .terraform
 terraform.tfstate
 terraform.tfplan
+plan.json
+provider_schemas.json
