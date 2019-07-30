@@ -1,0 +1,8 @@
+# Enforces that the workspace is suffixed with "-dev"
+
+import "tfrun"
+import "strings"
+
+main = rule {
+    strings.has_suffix(tfrun.workspace.name, "-dev")
+}
