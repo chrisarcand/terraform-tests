@@ -1,0 +1,9 @@
+# Enforces that the run doesn't cost any monies
+
+import "tfrun"
+import "strings"
+
+main = rule {
+	# (uses string comparison for a the current lack of a the decimal import)
+	tfrun.cost_estimate.proposed_monthly_cost is "0.0"
+}
