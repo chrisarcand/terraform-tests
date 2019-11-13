@@ -1,0 +1,40 @@
+# no-hazardous-asteroids-today.sentinel enforces that no
+# "potentially hazardous" asteroids are approaching their
+# closest point to Earth within 1,000,000 miles today. Because if
+# there's a potentially hazardous asteroid reaching within a
+# million miles o' here, we're way too nervous and distracted to
+# be changing our infrastructure right now!
+import "http"
+import "json"
+import "strings"
+import "time"
+
+# Phase 2 concern: safe injection of this value within the policy
+api_token = "tsV3H1zUtfw2floh7y5f1DS12rgI9GppaIo3seVJ"
+year = string(time.now.year)
+month = string(time.now.month)
+day = string(time.now.day)
+today = strings.join([year, month, day], "-")
+base_url = "https://api.nasa.gov/neo/rest/v1/feed?"
+start_query = "start_date=" + today
+api_query = "&api_key=" + api_token
+full_url = base_url + start_query + api_query
+no_close_hazardous_asteroids = func(asteroids) {
+	is_safe = true
+	for asteroids as asteroid {
+		if asteroid["is_potentially_hazardous_asteroid"] is true and float(asteroid["close_approach_data"][0]["miss_distance"]["miles"]) < 100000000 {
+			print("\n😱😱😱")
+			print("The asteroid '" + string(asteroid["name"]) + "' is estimated to be up to " + string(asteroid["estimated_diameter"]["feet"]["estimated_diameter_max"]) + " feet in diameter!")
+			print("And it's traveling " + string(asteroid["close_approach_data"][0]["relative_velocity"]["miles_per_hour"]) + " miles per hour!!!!")
+			print("AHHHHHHH!!!!!!")
+			is_safe = false
+		}
+	}
+	return is_safe
+}
+response = http.get(full_url)
+main = rule {
+	no_close_hazardous_asteroids(
+		json.unmarshal(response.body)["near_earth_objects"][today],
+	)
+}
