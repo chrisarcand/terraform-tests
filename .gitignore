@@ -1,5 +1,7 @@
 .terraform
 terraform.tfstate
+*.backup
 terraform.tfplan
 plan.json
 provider_schemas.json
+*.tfvars
