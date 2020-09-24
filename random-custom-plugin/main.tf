@@ -1,4 +1,4 @@
-resource "sooper_custom_random_pet" "animal" {
+resource "soopercustomrandom_pet" "animal" {
   keepers = {
     uuid = "${uuid()}" # Force a new name each time
   }
