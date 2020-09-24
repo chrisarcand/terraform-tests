@@ -6,5 +6,5 @@ resource "soopercustomrandom_pet" "animal" {
 }
 
 output "random" {
-  value = "${random_pet.animal.id}"
+  value = "${soopercustomrandom_pet.animal.id}"
 }
