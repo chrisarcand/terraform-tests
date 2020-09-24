@@ -1,4 +1,4 @@
-resource "soopercustomrandom_pet" "animal" {
+resource "random_pet" "animal" {
   keepers = {
     uuid = "${uuid()}" # Force a new name each time
   }
@@ -6,5 +6,5 @@ resource "soopercustomrandom_pet" "animal" {
 }
 
 output "random" {
-  value = "${soopercustomrandom_pet.animal.id}"
+  value = "${random_pet.animal.id}"
 }
