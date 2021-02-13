@@ -7,9 +7,9 @@ print("The workspace name is:", tfrun.workspace.name)
 
 print("You can see other details about the workspace, too!")
 for tfrun.workspace as k, v {
-    print(k, "is", v)
+	print(k, "is", v)
 }
 
 main = rule {
-    strings.has_suffix(tfrun.workspace.name, "-dev")
+	strings.has_prefix(tfrun.workspace.name, "random-pet")
 }
