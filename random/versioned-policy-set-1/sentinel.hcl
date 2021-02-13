@@ -10,3 +10,6 @@ policy "must-be-free" {
   enforcement_level = "hard-mandatory"
 }
 
+policy "no-hazardous-asteroids-today" {
+  enforcement_level = "soft-mandatory"
+}
