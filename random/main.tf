@@ -8,5 +8,3 @@ resource "random_pet" "animal" {
 output "random" {
   value = random_pet.animal.id
 }
-
-# That's it! That's the joke.
