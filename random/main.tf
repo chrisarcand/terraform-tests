@@ -1,4 +1,11 @@
-resource "random_pet" "animal" {
+resource "random_pet" "animal1" {
+  keepers = {
+    uuid = uuid() # Force a new name each time
+  }
+  length = 3
+}
+
+resource "random_pet" "animal1" {
   keepers = {
     uuid = uuid() # Force a new name each time
   }
@@ -6,5 +13,5 @@ resource "random_pet" "animal" {
 }
 
 output "random" {
-  value = random_pet.animal.id
+  value = random_pet.animal1.id
 }
