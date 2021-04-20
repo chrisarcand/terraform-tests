@@ -5,7 +5,7 @@ resource "random_pet" "animal1" {
   length = 3
 }
 
-resource "random_pet" "animal1" {
+resource "random_pet" "animal2" {
   keepers = {
     uuid = uuid() # Force a new name each time
   }
