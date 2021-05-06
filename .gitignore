@@ -5,3 +5,4 @@ terraform.tfplan
 plan.json
 provider_schemas.json
 *.tfvars
+.terraform.lock.hcl
