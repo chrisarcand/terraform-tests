@@ -1,0 +1,18 @@
+terraform {
+  backend "remote" {
+    organization = "example-org"
+    workspaces {
+      name = "example-admin-workspace"
+    }
+  }
+
+  required_providers {
+      tfe = {
+          source = "hashicorp/tfe"
+          version = "~> 0.25.0"
+      }
+  }
+
+  # This is required in Terraform 0.14 to enable optional attributes
+  experiments = [module_variable_optional_attrs]
+}
