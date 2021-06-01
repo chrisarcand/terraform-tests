@@ -18,7 +18,6 @@ variable "workspaces" {
   type = map(object({
     auto_apply = optional(bool)
     terraform_version = optional(string)
-    queue_all_runs    = optional(bool)
     execution_mode    = optional(string)
     allow_destroy_plan = optional(bool)
     working_directory = optional(string)
@@ -43,7 +42,6 @@ resource "tfe_workspace" "workspaces" {
 
   auto_apply        = each.value["auto_apply"]
   terraform_version = each.value["terraform_version"]
-  queue_all_runs    = each.value["queue_all_runs"]
   execution_mode    = each.value["execution_mode"]
   working_directory = each.value["working_directory"] 
   dynamic "vcs_repo" {
