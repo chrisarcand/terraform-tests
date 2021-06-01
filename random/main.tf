@@ -10,6 +10,6 @@ resource "random_pet" "animal_trio" {
   length = 3
 }
 
-output "animal_namez" {
+output "animal_names" {
   value = concat([random_pet.always_new.id], random_pet.animal_trio[*].id)
 }
