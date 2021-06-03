@@ -7,3 +7,4 @@ provider_schemas.json
 *.tfvars
 .terraform.lock.hcl
 backend.tf
+tmp
