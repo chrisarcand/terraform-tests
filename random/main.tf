@@ -13,3 +13,7 @@ resource "random_pet" "animal_trio" {
 output "animal_names" {
   value = concat([random_pet.always_new.id], random_pet.animal_trio[*].id)
 }
+
+output "current_workspace" {
+  value = terraform.workspace
+}
