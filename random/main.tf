@@ -1,6 +1,6 @@
 resource "random_pet" "always_new" {
   keepers = {
-    uuid = uuid() #foo bar
+    uuid = uuid() #foo bar baz
   }
   length = 3
 }
