@@ -22,7 +22,7 @@ variable "large_data" {
 
 
 resource "null_resource" "large_data_example" {
-  count = 10
+  count = 1000000
 
   triggers = {
     large_data = var.large_data
