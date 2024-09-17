@@ -9,27 +9,20 @@ terraform {
 
 provider "null" {}
 
-
-variable "large_data" {
-  default = <<EOT
-    iVBORw0KGgoAAAANSUhEUgAAAoAAAAGwCAYAAADlnkSmAAAIJ0lEQVR4Xu3dQW5UMQwF0ODqf9N3g0Q8AQ0RjTph
-    9Z/vHb8Zcf9ZzDBfJdNvExEAAAxGAfFxAIJMIUAAAIgBAABiAABgwAAAAaAAEAAIAAAGQFQACACAAAAMAAAGAAABm
-    AQAAIAABgAAAQkAAAIgAAADIACAgAASAAAAAABkAAADIACAgAAAIAQACABAAAQAIAIAgAAAIAIAgAAQACACAgAAAA
-    MAAQACAAACACAgAAAAQAIAAQAACAAACACAgAAAAIAAgAAAIAACAgAAAAIAAgAAAQACAgAAAAIAQAAAAIAAAIAAgAAA
-    MAAACAgAAAAIAAgAAAQAACAgAAAIAAgAAAQAIAAgAAAIAAgAAAIAAgAAAIAAAAACAgAA
-    EOT
+variable "resource_count" {
+  default = 50
+  description = "The number of resources to create, each using the dummy base64 file. 50 resources will generate a ~2GB plan file."
 }
 
-
-resource "null_resource" "large_data_example" {
-  count = 1000000
+resource "null_resource" "large_file_data" {
+  count = var.resource_count
 
   triggers = {
-    large_data = var.large_data
-    instance   = count.index
+    file_data = file("${path.module}/file_base64.txt")
+    instance  = count.index
   }
 }
 
-output "example_output" {
-  value = null_resource.large_data_example[*].id
+output "file_data_length" {
+  value = length(file("${path.module}/file_base64.txt"))
 }
