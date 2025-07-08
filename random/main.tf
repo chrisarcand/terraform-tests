@@ -6,8 +6,8 @@ resource "random_pet" "always_new" {
 }
 
 resource "random_pet" "animal_trio" {
-  count = 3
-  length = 3
+  count  = 3
+  length = 4
 }
 
 output "animal_names" {
