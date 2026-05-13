@@ -11,8 +11,14 @@ provider "aws" {
   region = "us-east-1"
 }
 
+variable "bucket_count" {
+  type        = number
+  description = "Number of S3 buckets to create"
+  default     = 1
+}
+
 resource "aws_s3_bucket" "buckets" {
-  count  = 99
+  count  = var.bucket_count
   bucket = "my-bucket-${count.index + 1}"
 
   tags = {
