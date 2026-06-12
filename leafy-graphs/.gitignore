@@ -1,0 +1,19 @@
+# Local .terraform directories
+**/.terraform/*
+.terraform.lock.hcl
+
+# State files (HCP Terraform stores state remotely; never commit local state)
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Variable files that may contain secrets / environment specifics
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+
+# CLI config / plan output
+.terraformrc
+terraform.rc
+*.tfplan
