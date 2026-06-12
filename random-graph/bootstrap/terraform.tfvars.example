@@ -1,0 +1,35 @@
+# ---------------------------------------------------------------------------
+# Copy to terraform.tfvars (or set as workspace variables on <prefix>-bootstrap)
+# and fill in. The bootstrap workspace also needs a SENSITIVE env var:
+#
+#   TFE_TOKEN = <an HCP Terraform user/team API token>
+#
+# ---------------------------------------------------------------------------
+
+# --- HCP Terraform org / host ----------------------------------------------
+tfe_organization = "your-org"
+# tfe_hostname   = "app.terraform.io"   # or your TFE hostname
+
+# --- VCS connection (child workspaces are VCS-driven against this repo) ------
+vcs_repo_identifier = "your-gh-org/terraform-tests"
+
+# Set EXACTLY ONE of the following two, matching how your VCS is connected:
+vcs_oauth_token_id = "ot-XXXXXXXXXXXXXXXX"
+# vcs_github_app_installation_id = "ghain-XXXXXXXXXXXXXXXX"
+
+# vcs_branch   = "main"          # empty = repo default branch
+# repo_subpath = "random-graph"  # path to this config in the repo; "" if at repo root
+
+# --- Naming / placement ------------------------------------------------------
+workspace_prefix = "random-graph"
+# project_id     = "prj-XXXXXXXXXXXXXXXX"  # place workspaces in an existing project
+# project_name   = "random-graph"          # OR create a project with this name
+# extra_tags     = ["demo", "random-graph"]
+
+# --- Child workspace behaviour ----------------------------------------------
+# execution_mode      = "remote"   # remote | agent | local
+# agent_pool_id       = "apool-XXXXXXXXXXXXXXXX"  # required when execution_mode = agent
+# auto_apply          = true       # let run-trigger cascades flow without manual approval
+# queue_all_runs      = false      # keep false so the cascade starts cleanly from foundation
+# terraform_version   = ""         # empty = latest
+# global_remote_state = true       # required for the terraform_remote_state DAG
