@@ -437,3 +437,12 @@ resource "random_pet" "c5_l0_0" {
   }
 }
 
+# === pocket churn: throwaway count -> forces a real apply (runtime/provider refresh) ===
+resource "null_resource" "churn" {
+  count = 3
+  triggers = {
+    generation = "1"
+    index      = tostring(count.index)
+  }
+}
+
